@@ -1,0 +1,33 @@
+<openbox_menu>
+	<menu id="root-menu" label="OpenBox">
+		<separator label="Openbox"/>
+		<item label="xterm">
+			<action name="Execute">
+				<execute>xterm</execute>
+			</action>
+		</item>
+
+		<menu id="Internet" label="Internet">
+			<item label="Firefox">
+				<action name="Execute">
+					<execute>firefox</execute></action>
+			</item>
+		</menu>
+
+		<menu id="System" label="System">
+			<item label="xkill">
+				<action name="Execute">
+					<execute>xkill</execute>
+				</action>
+			</item>
+		</menu>
+
+		<menu id="ID" label="x2any" execute="~/config/pipe/x2any-pipe.rb" />
+		<menu id="ID2" label="background" execute="~/config/pipe/feh-background.rb ~/share/wallpapers" />
+		<separator />
+		<item label="Reconfigure"><action name="Reconfigure" /></item>
+		<item label="Restart"><action name="Restart" /></item>
+		<separator />
+		<item label="Exit"><action name="Exit" /></item>
+	</menu>
+</openbox_menu>

@@ -1,0 +1,8 @@
+" Options
+set visualbell
+set editor=xterm -geometry 120x45+150+100 -e vim
+
+set complete=l
+set wildoptions=auto
+
+" vim: set ft=vim:

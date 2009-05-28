@@ -1,0 +1,24 @@
+XTerm*background:   black
+XTerm*foreground:   white
+XTerm*eightBitInput:   false
+XTerm*metaSendsEscape: true
+
+XTerm*toolBar: false
+
+XTerm*cursorBlink:      true
+XTerm*cursorOnTime:     1400
+XTerm*cursorOffTime:    600
+
+XTerm*saveLines: 4096
+
+XTerm*visualBell: true
+
+XTerm*trimSelection:      true
+XTerm*keepSelection:      true
+
+XTerm*printerCommand:   dd of=/tmp/foo bs=1 && xterm -e vim -n /tmp/foo 
+XTerm*printerAutoClose: true
+XTerm*printerFormFeed:  true
+XTerm*printAttributes:  0
+
+*VT100.Translations: #override Shift <KeyPress> Print: print() \n

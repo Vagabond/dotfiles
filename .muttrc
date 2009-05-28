@@ -1,0 +1,58 @@
+lists users@crater.dragoflybsd.org
+subscribe users@crater.dragonflybsd.org
+lists nitro-general@rubyforge.org
+subscribe nitro-general@rubyforge.org
+lists rubinius-devel@googlegroups.com
+subscribe rubinius-devel@googlegroups.com
+lists Freeswitch-dev@lists.freeswitch.org
+subscribe Freeswitch-dev@lists.freeswitch.org
+lists argus-info@lists.andrew.cmu.edu
+subscribe argus-info@lists.andrew.cmu.edu
+lists port-alpha@netbsd.org
+subscribe port-alpha@netbsd.org
+lists alpha@openbsd.org
+subscribe alpha@openbsd.org
+
+#mailboxes /var/mail/andrew mbox
+set index_format="%4C %Z %{%b %d} %-15.15n %s"
+set realname="Andrew Thompson"
+
+set folder=~/.muttmail
+set postponed=~/.muttmail/postponed
+set arrow_cursor
+set include
+set mbox=+mbox
+set record=~/.muttmail/sent
+set edit_headers=yes
+
+set sort=threads
+set duplicate_threads=yes
+set nomark_old
+set pager_stop
+
+ignore *
+
+unignore from: subject to cc mail-followup-to \
+	date x-mailer x-url
+
+mailboxes `echo $HOME/.muttmail/*`
+
+unhdr_order *
+hdr_order date from subject to cc
+
+macro index X "<enter-command>unset wait_key\n<pipe-entry>bogofilter -s\n<enter-command>set wait_key\n<delete-message>"
+macro pager X "<enter-command>unset wait_key\n<pipe-entry>bogofilter -s\n<enter-command>set wait_key\n<delete-message>"
+macro index r "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<reply>"
+macro pager r "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<reply>"
+
+#macro index L "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<list-reply>"
+#macro pager L "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<list-reply>"
+
+#macro index s "<enter-command>unset wait_key\n<pipe-entry>bogofilter -N\n<enter-command>set wait_key\n<save-entry>"
+#macro pager s "<enter-command>unset wait_key\n<pipe-entry>bogofilter -N\n<enter-command>set wait_key\n<save-entry>"
+
+macro index u "<change-folder>?<tab>"
+
+#macro browser q "<return><quit>"
+
+source ~/.muttrc-hooks

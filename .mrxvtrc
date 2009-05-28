@@ -1,0 +1,58 @@
+#window look
+mrxvt*scrollBar:		false
+mrxvt*showMenu:			false
+mrxvt*background:		black
+mrxvt*foreground:		white
+mrxvt*hideTabbar:		true
+mrxvt*tabForeground:	white
+mrxvt*tabBackground:	black
+mrxvt*textShadowMode:	none
+mrxvt*hideButtons:		true
+#mrxvt*cursorBlinkInterval:	1000
+
+#fonts
+#xft fonts just don't work for me..
+#mrxvt*xft:				true
+#mrxvt*xftFont:			VeraMono
+#mrxvt*xftmFont:			VeraMono
+#mrxvt*xftAntialias:		true
+#mrxvt*xftHinting:		true
+#mrxvt*xftWeight:		light
+#mrxvt*xftSize:			10
+#mrxvt*xftWidth:			ultracondensed
+mrxvt*font:				-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO8859-1
+
+#behaviour
+mrxvt*saveLines:		5000
+mrxvt*termName:			rxvt
+mrxvt*scrollTtyOutputInhibit:	true
+mrxvt*syncTabTitle:		true
+#mrxvt*cursorBlink:		true
+
+# keybindings
+# unbind all the stupid alt+num tab switchers so they don't piss off vim and
+# irssi
+mrxvt*hotkey*Dummy:		Alt+1
+mrxvt*hotkey*Dummy:		Alt+2
+mrxvt*hotkey*Dummy:		Alt+3
+mrxvt*hotkey*Dummy:		Alt+4
+mrxvt*hotkey*Dummy:		Alt+5
+mrxvt*hotkey*Dummy:		Alt+6
+mrxvt*hotkey*Dummy:		Alt+7
+mrxvt*hotkey*Dummy:		Alt+8
+mrxvt*hotkey*Dummy:		Alt+9
+mrxvt*hotkey*Dummy:		Alt+0
+#bind some tab management stuff
+mrxvt*hotkey*NewTab:	Ctrl+Primary+t
+mrxvt*hotkey*HideTabbar:	Ctrl+Primary+h
+#bind alt+primary for switchin tabs and a fallback for when we're in vim
+mrxvt*hotkey*Tab1:		Alt+Primary+1 Ctrl+Alt+1
+mrxvt*hotkey*Tab2:		Alt+Primary+2 Ctrl+Alt+2
+mrxvt*hotkey*Tab3:		Alt+Primary+3 Ctrl+Alt+3
+mrxvt*hotkey*Tab4:		Alt+Primary+4 Ctrl+Alt+4
+mrxvt*hotkey*Tab5:		Alt+Primary+5 Ctrl+Alt+5
+mrxvt*hotkey*Tab6:		Alt+Primary+6 Ctrl+Alt+6
+mrxvt*hotkey*Tab7:		Alt+Primary+7 Ctrl+Alt+7
+mrxvt*hotkey*Tab8:		Alt+Primary+8 Ctrl+Alt+8
+mrxvt*hotkey*Tab9:		Alt+Primary+9 Ctrl+Alt+9
+mrxvt*hotkey*Tab0:		Alt+Primary+0 Ctrl+Alt+0

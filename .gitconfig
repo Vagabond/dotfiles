@@ -1,0 +1,10 @@
+[branch]
+	autosetupmerge = true
+[core]
+	pager = vim -R -
+[color]
+	ui = auto
+[merge]
+	tool = vimdiff
+[user]
+	name = Andrew Thompson

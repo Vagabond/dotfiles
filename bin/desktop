@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+#simple script to summarize virtual desktop layout
+#outputs a string of the form #{currentdesktop}/#{lastdesktop}
+#Copyright 2006 Andrew 'Vagabond' Thompson
+
+string = `wmctrl -d`
+#p string
+fields = []
+string.split("\n").each do |line|
+	#puts line
+	fields = line.split(' ')
+	#p fields
+	if fields[1] == '*'
+		print fields[-1]
+	end
+end
+
+puts "/#{fields[-1]}"
+

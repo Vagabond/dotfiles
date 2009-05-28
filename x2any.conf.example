@@ -1,0 +1,5 @@
+$x2x = [
+	{:host=>'desktop1.somedomain', :side=>'east'},
+	{:host=>'desktop2.somedomain', :side=>'west'}
+	]
+$x2vnc = []

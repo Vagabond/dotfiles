@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+
+#script to get a random image from a folder and pass it to feh All options other
+#than -R are passed onto feh
+#Copyright 2006 Andrew 'Vagabond' Thompson
+
+# p ARGV
+
+$directories = []
+$deleteables = []
+
+unless ARGV.include? '-R'
+	puts "Usage #{$0} -R [Dir1..DirN] (can accept multiple directories for one -R)"
+	puts 'You must have at least one -R option with a Dir'
+	puts 'All other options are passed onto feh'
+	exit
+end
+
+ARGV.length.times do |i|
+#     p ARGV[i]
+	if ARGV[i] == '-R'
+		j = i + 1
+		while ARGV[j]
+			break if ARGV[j][0,1] == '-'
+			$directories << ARGV[j]
+			$deleteables << j
+			j += 1
+		end
+	end
+end
+
+#cleanup the ARG list
+$deleteables.reverse.each do |del|
+	ARGV.delete_at(del)
+end
+ARGV.delete_if{|x| x == '-R'}
+
+# p ARGV
+
+#find a random image
+$images = []
+$directories.each do |dir|
+	Dir.chdir(File.expand_path(dir))
+	$images += Dir['*.{png,jpg}'].map{|x| File.expand_path(x)}
+end
+
+if $images.empty?
+	STDERR.puts "No images found in specified path"
+	exit
+end
+
+#put the image in feh's argument list
+if index = ARGV.index(ARGV.detect{|x| x[0,5] == '--bg-'})
+	ARGV.insert(index+1, $images[rand($images.length)])
+else
+	ARGV << '--bg-scale'
+	ARGV << $images[rand($images.length)]
+end
+
+`feh #{ARGV.join(' ')}`
+

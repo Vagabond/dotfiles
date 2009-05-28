@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if [ `which xlock` ]; then
+	xlock -mode blank -info " " -username " " -password " " -validate " " -invalid " " -foreground black -icongeometry 0x0
+fi
