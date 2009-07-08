@@ -87,13 +87,14 @@ fu! ToggleHighlightLongLines()
 	if(g:HighlightLongLines == 1)
 		" Disable highlighting and textwidth
 		highlight clear rightMargin
-		set textwidth=0
+		"set textwidth=0
 		let g:HighlightLongLines = 0
 	else
 		" Enable highlighting and textwidth
-		set textwidth=80
+		"set textwidth=80
 		highlight rightMargin ctermbg=LightRed guibg=LightRed
-		match rightMargin /\%>81v/
+		let foo = 'match rightMargin /\%>'.&textwidth.'v/'
+		exec foo
 		let g:HighlightLongLines = 1
 	endif
 endfunction
