@@ -84,8 +84,10 @@ alias rdesktop="rdesktop -g 90% -a 8"
 # use the vim less macro, where available
 if [ `uname` = "SunOS" ]; then # goddamn solaris
 	VIMLESS=`ls /usr/(pkg|local)/share/vim/vim??/macros/less.sh | sort -u | /usr/xpg4/bin/tail -n 1`
+elif [ `uname` = "Linux" ]; then
+	VIMLESS=`ls /usr/share/vim/vim??/macros/less.sh | sort -u | tail -n 1`
 else
-	VIMLESS=`ls /usr/(pkg|local)/share/vim/vim??/macros/less.sh | sort -u | tail -n 1`
+	VIMLESS=`ls /usr/(pkg/|local/|)share/vim/vim??/macros/less.sh | sort -u | tail -n 1`
 fi
 if [ "x$VIMLESS" != "x" ]; then 
 	alias realmore=`which more`
