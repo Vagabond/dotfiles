@@ -330,6 +330,8 @@ autocmd BufWritePost,FileWritePost *.nc let @j = ""
 "trigger a screen redraw cuz things are fucked up
 autocmd BufWritePost,FileWritePost *.nc normal 
 
+autocmd FileType mail call ToggleHighlightLongLines()
+
 " fixup home/end keys
 " Solaris (isn't this the default?!)
 map OH <Home>
