@@ -22,3 +22,42 @@ XTerm*printerFormFeed:  true
 XTerm*printAttributes:  0
 
 *VT100.Translations: #override Shift <KeyPress> Print: print() \n
+
+XTerm*locale: UTF-8
+XTerm*utf8: 3
+
+! Stolen from http://www.fsai.fh-trier.de/~weyera/files/config/Xdefaults,
+! hope he doesn't mind. :)
+
+!black
+!XTerm*color0:    rgb:00/00/00
+!XTerm*color8:    rgb:70/74/78
+
+!red
+!XTerm*color1:    rgb:d0/70/50
+!XTerm*color9:    rgb:d0/90/70
+
+!green
+!XTerm*color2:    rgb:50/b0/70
+!XTerm*color10:    rgb:70/d0/90
+
+!yellow
+!XTerm*color3:    rgb:a0/a0/70
+!XTerm*color11:    rgb:c0/c0/90
+
+!blue
+XTerm*color4:    rgb:56/8e/ff
+XTerm*color12:    rgb:58/8c/f6
+
+!magenta
+!XTerm*color5:    rgb:a0/70/a0
+!XTerm*color13:    rgb:c0/90/c0
+
+!cyan
+!XTerm*color6:    rgb:70/a0/a0
+!XTerm*color14:    rgb:90/c0/c0
+
+!white
+!XTerm*color7:    rgb:a0/a4/a8
+!XTerm*color15:    white
+
