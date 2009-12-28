@@ -1,21 +1,25 @@
-lists users@crater.dragoflybsd.org
 subscribe users@crater.dragonflybsd.org
-lists nitro-general@rubyforge.org
 subscribe nitro-general@rubyforge.org
-lists rubinius-devel@googlegroups.com
 subscribe rubinius-devel@googlegroups.com
-lists Freeswitch-dev@lists.freeswitch.org
 subscribe Freeswitch-dev@lists.freeswitch.org
-lists argus-info@lists.andrew.cmu.edu
+subscribe Freeswitch-users@lists.freeswitch.org
 subscribe argus-info@lists.andrew.cmu.edu
-lists port-alpha@netbsd.org
 subscribe port-alpha@netbsd.org
-lists alpha@openbsd.org
 subscribe alpha@openbsd.org
+subscribe tktable-tile-dev@lists.sourceforge.net
+subscribe ruby-core@ruby-lang.org
+subscribe treedevelopers@fusedsolutions.com
+subscribe alsa-user@lists.sourceforge.net
+subscribe erlang-questions@erlang.org
+subscribe erlang-patches@erlang.org
 
 #mailboxes /var/mail/andrew mbox
 set index_format="%4C %Z %{%b %d} %-15.15n %s"
 set realname="Andrew Thompson"
+
+set mbox_type=Maildir
+
+set folder_format="%2C %t %N %d %f"
 
 set folder=~/.muttmail
 set postponed=~/.muttmail/postponed
@@ -29,6 +33,14 @@ set sort=threads
 set duplicate_threads=yes
 set nomark_old
 set pager_stop
+set pager_index_lines=3
+set sort=threads
+
+
+set reverse_name
+set from=andrew@hijacked.us
+set alternates="andrewt@fusedsolutions.com|athompson@spicecsm.com"
+
 
 ignore *
 
@@ -44,6 +56,10 @@ macro index X "<enter-command>unset wait_key\n<pipe-entry>bogofilter -s\n<enter-
 macro pager X "<enter-command>unset wait_key\n<pipe-entry>bogofilter -s\n<enter-command>set wait_key\n<delete-message>"
 macro index r "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<reply>"
 macro pager r "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<reply>"
+macro index g "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<group-reply>"
+macro pager g "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<group-reply>"
+macro index "\Cr" "<tag-pattern>~N<enter><tag-prefix><toggle-new><tag-prefix><clear-flag>*" \
+"Mark all boring new msgs"
 
 #macro index L "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<list-reply>"
 #macro pager L "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<list-reply>"
@@ -56,3 +72,10 @@ macro index u "<change-folder>?<tab>"
 #macro browser q "<return><quit>"
 
 source ~/.muttrc-hooks
+
+alias identity_1         Andrew Thompson     <andrewt@fusedsolutions.com>
+alias identity_2         Andrew Thompson     <andrew@hijacked.us>
+alias identity_3         Andrew Thompson     <vagabond@cataclysm-software.net>
+
+macro compose v "<edit-from>^Uidentity_<tab>" "Select from"
+
