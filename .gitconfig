@@ -1,10 +1,13 @@
 [branch]
 	autosetupmerge = true
 [core]
-	pager = vim -R -
+	pager = less
 [color]
 	ui = auto
 [merge]
 	tool = vimdiff
 [user]
 	name = Andrew Thompson
+	email = andrew@hijacked.us
+[github]
+	user = Vagabond

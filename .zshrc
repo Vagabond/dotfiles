@@ -87,7 +87,7 @@ if [ `uname` = "SunOS" ]; then # goddamn solaris
 elif [ `uname` = "Linux" ]; then
 	VIMLESS=`ls /usr/share/vim/vim??/macros/less.sh | sort -u | tail -n 1`
 else
-	VIMLESS=`ls /usr/(pkg/|local/|)share/vim/vim??/macros/less.sh | sort -u | tail -n 1`
+	VIMLESS=`ls /usr/(pkg|local)/share/vim/vim??/macros/less.sh | sort -u | tail -n 1`
 fi
 if [ "x$VIMLESS" != "x" ]; then 
 	alias realmore=`which more`
@@ -106,6 +106,8 @@ export red=$'%{\e[0;31m%}'
 export RED=$'%{\e[1;31m%}'
 export green=$'%{\e[0;32m%}'
 export GREEN=$'%{\e[1;32m%}'
+export yellow=$'%{\e[0;33m%}'
+export YELLOW=$'%{\e[1;33m%}'
 export blue=$'%{\e[0;34m%}'
 export BLUE=$'%{\e[1;34m%}'
 export purple=$'%{\e[0;35m%}'
