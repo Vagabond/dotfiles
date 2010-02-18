@@ -345,3 +345,5 @@ map [4~ <End>
 imap [1~ <Home>
 imap [4~ <End>
 
+map  
+imap  
