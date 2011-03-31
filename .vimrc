@@ -75,6 +75,10 @@ au BufNewFile,BufRead *.xhtml :set ft=html
 au BufNewFile,BufRead *asterisk*/*voicemail.conf* :set ft=asterisk_voicemail
 au BufNewFile,BufRead *asterisk/*.conf* :set ft=asterisk 
 
+" riak
+au BufNewFile,BufRead *riak*/**/*.erl :set expandtab tabstop=4 shiftwidth=4 tw=78
+au BufNewFile,BufRead *riak*/**/*.erl :call ToggleHighlightLongLines()
+
 " Unbind the fscking F1 key so it doesn't pop the help screen all the time
 nmap <F1> :echo<CR>
 imap <F1> <C-o>:echo<CR>
@@ -203,6 +207,7 @@ if v:version >= 700
 	map 8 :tabn 8<CR>
 	map 9 :tabn 9<CR>
 	map 0 :tabn 10<CR>
+	map OC :tabn
 	
 	" shorten up the tab titles by calculating relative paths when possible
 	function GetRelativePath(path)
