@@ -87,7 +87,7 @@ if [ `uname` = "SunOS" ]; then # goddamn solaris
 elif [ `uname` = "Linux" ]; then
 	VIMLESS=`ls /usr/share/vim/vim??/macros/less.sh | sort -u | tail -n 1`
 else
-	VIMLESS=`ls /usr/(pkg/|local/|)share/vim/vim??/macros/less.sh | sort -u | tail -n 1`
+	VIMLESS=`ls /usr/(pkg|local)/share/vim/vim??/macros/less.sh | sort -u | tail -n 1`
 fi
 if [ "x$VIMLESS" != "x" ]; then 
 	alias realmore=`which more`
