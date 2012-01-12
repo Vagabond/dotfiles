@@ -39,7 +39,7 @@ export PATH=$HOME/bin:$PATH
 
 # make home/end work in as many places as possible
 case $TERM in
-    *xterm*|*rxvt|(dt|k|E|a)term|vt100)
+	*xterm*|*rxvt|(dt|k|E|a)term|vt100)
 		case `uname -s` in
 			SunOS|NetBSD|IRIX*|DragonFly|OpenBSD)
 			bindkey "\e[H" beginning-of-line
@@ -50,32 +50,17 @@ case $TERM in
 			bindkey "\e[8~" end-of-line
 			;;
 		esac
-    ;;
-    screen*)
-	bindkey "\e[1~" beginning-of-line
-	bindkey "\e[4~" end-of-line
-	;;
+		;;
+	screen*)
+		bindkey "\e[1~" beginning-of-line
+		bindkey "\e[4~" end-of-line
+		;;
 	cons25)
-	# TODO - check this on NETBSD and other OSes
-	bindkey "\e[H" beginning-of-line
-	bindkey "\e[F" end-of-line
-	;;
+		# TODO - check this on NETBSD and other OSes
+		bindkey "\e[H" beginning-of-line
+		bindkey "\e[F" end-of-line
+		;;
 esac
-
-# bind ^P to show start/end times of previous command
-displaytimes() {
-	if [ "x$STARTTIME" != "x" ]; then
-		# giant hack to trick the prompt into containing the timestamps..
-		OPROMPT=$PROMPT
-		PROMPT="${STARTTIME} - ${ENDTIME}
-${PROMPT}"
-		zle reset-prompt
-		PROMPT=$OPROMPT
-	fi
-}
-zle -N displaytimes
-
-bindkey "^P" displaytimes
 
 # Aliases, how I love thee
 alias mutt="mutt -y"
@@ -128,33 +113,37 @@ export NC=$'%{\e[0m%}'
 # prompt. If you're using screen, it sets the window title (works
 # wonderfully for hardstatus lines :)
 precmd () {
-	ENDTIME=`date`
-  [[ -t 1 ]] || return
-  case $TERM in
-    *xterm*|*rxvt|(dt|k|E|a)term) print -Pn "\e]2;%n@%m::%(3~,../%20<<%2~,%20<../<%~)\a"
-    ;;
-    screen*) print -Pn "\e\"%n@%m::%(3~,../%15<<%2~,%15<../<%~)\e\134"
-  esac
-}
-
-# This sets the window title to the last run command.
-#[[ -t 1 ]] || return
-
-preexec() {
-	STARTTIME=`date`
+	[[ -t 1 ]] || return
 	case $TERM in
 		*xterm*|*rxvt|(dt|k|E|a)term)
-		# if we're doing some screen shit, set the window title to 
-		# screen@hostname instead of the generic screen -x or whatever
-		if [[ $1 == screen ]] || [[ ${${=1}[0]} == screen ]]; then
-			print -Pn "\e]2;screen@%M\a"
-		else
-			print -Pn "\e]2;%20>..>$1%<<\a"
-		fi
-		;;
+			print -Pn "\e]2;%n@%m::%(3~,../%20<<%2~,%20<../<%~)\a"
+			;;
 		screen*)
-		print -Pn "\e\"%15>..>$1%<<\e\134"
-		;;
+			# tmux already knows how to do this
+			if [ "x$TMUX" = "x" ]; then
+				print -Pn "\e\"%n@%m::%(3~,../%15<<%2~,%15<../<%~)\e\134"
+			fi
+			;;
+	esac
+}
+
+preexec() {
+	case $TERM in
+		*xterm*|*rxvt|(dt|k|E|a)term)
+			# if we're doing some screen shit, set the window title to 
+			# screen@hostname instead of the generic screen -x or whatever
+			if [[ $1 == screen ]] || [[ ${${=1}[0]} == screen ]]; then
+				print -Pn "\e]2;screen@%M\a"
+			else
+				print -Pn "\e]2;%20>..>$1%<<\a"
+			fi
+			;;
+		screen*)
+			# tmux already knows how to do this
+			if [ "x$TMUX" = "x" ]; then
+				print -Pn "\e\"%15>..>$1%<<\e\134"
+			fi
+			;;
 	esac
 }
 
