@@ -70,6 +70,18 @@
 		<keybind key="S-A-period">
 			<action name="SendToDesktopRight"><wrap>yes</wrap></action>
 		</keybind>
+		<keybind key="C-A-Left">
+			<action name="DesktopLeft"><wrap>yes</wrap></action>
+		</keybind>
+		<keybind key="C-A-Right">
+			<action name="DesktopRight"><wrap>yes</wrap></action>
+		</keybind>
+		<keybind key="S-A-Left">
+			<action name="SendToDesktopLeft"><wrap>yes</wrap></action>
+		</keybind>
+		<keybind key="S-A-Right">
+			<action name="SendToDesktopRight"><wrap>yes</wrap></action>
+		</keybind>
 		<keybind key="C-A-d">
 			<action name="ToggleShowDesktop"/>
 		</keybind>

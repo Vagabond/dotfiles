@@ -31,8 +31,8 @@ RPROMPT=$'[%(?,${green},${red})%(3~,../%15<<%2~,%15<../<%~)${NC}]'
 
 export COLORTERM=yes
 export CC=gcc
-export MANPAGER=more
-export PAGER=more
+export MANPAGER=less
+export PAGER=less
 export EDITOR=vim
 export CLICOLOR=YES
 export PATH=$HOME/bin:$PATH
@@ -78,6 +78,7 @@ if [ "x$VIMLESS" != "x" ]; then
 	alias realmore=`which more`
 	alias more="$VIMLESS"
 fi
+
 
 # make 'aliases' print the list of aliases
 alias aliases=alias
