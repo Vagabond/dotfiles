@@ -26,8 +26,18 @@ XTerm*printAttributes:  0
 XTerm*locale: UTF-8
 XTerm*utf8: 3
 
+! copy to the Clipboard AND the X selection
+! Taken from http://www.davidsimmons.com/soft/xtermhacks/
+XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
+! better URL highlighting
+! Taken from the comments at
+! http://www.debian-administration.org/article/Customizing_your_xterm
+! and modified to include the # character
+xterm*charClass: 33:48,35-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
 ! Stolen from http://www.fsai.fh-trier.de/~weyera/files/config/Xdefaults,
-! hope he doesn't mind. :)
+! hope he doesnt mind. :)
 
 !black
 !XTerm*color0:    rgb:00/00/00
