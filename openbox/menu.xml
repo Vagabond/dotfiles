@@ -8,6 +8,10 @@
 		</item>
 
 		<menu id="Internet" label="Internet">
+			<item label="Chromium">
+				<action name="Execute">
+					<execute>chromium</execute></action>
+			</item>
 			<item label="Firefox">
 				<action name="Execute">
 					<execute>firefox</execute></action>
@@ -22,8 +26,8 @@
 			</item>
 		</menu>
 
-		<menu id="ID" label="x2any" execute="~/config/pipe/x2any-pipe.rb" />
-		<menu id="ID2" label="background" execute="~/config/pipe/feh-background.rb ~/share/wallpapers" />
+		<!--<menu id="ID" label="x2any" execute="~/config/pipe/x2any-pipe.rb" />-->
+		<!--<menu id="ID2" label="background" execute="~/config/pipe/feh-background.rb ~/share/wallpapers" />-->
 		<separator />
 		<item label="Reconfigure"><action name="Reconfigure" /></item>
 		<item label="Restart"><action name="Restart" /></item>

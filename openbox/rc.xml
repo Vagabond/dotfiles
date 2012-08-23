@@ -110,6 +110,44 @@
 			<action name="Execute"><execute>~/config/bin/lockscreen</execute></action>
 		</keybind>
 
+		<keybind key="XF86MonBrightnessDown">
+			<action name="Execute"><execute>sudo /usr/local/bin/brightness.sh /sys/class/backlight/gmux_backlight down</execute></action>
+		</keybind>
+		<keybind key="XF86MonBrightnessUp">
+			<action name="Execute"><execute>sudo /usr/local/bin/brightness.sh /sys/class/backlight/gmux_backlight up</execute></action>
+		</keybind>
+
+		<keybind key="XF86KbdBrightnessDown">
+			<action name="Execute"><execute>sudo /usr/local/bin/brightness.sh /sys/class/leds/smc::kbd_backlight down</execute></action>
+		</keybind>
+		<keybind key="XF86KbdBrightnessUp">
+			<action name="Execute"><execute>sudo /usr/local/bin/brightness.sh /sys/class/leds/smc::kbd_backlight up</execute></action>
+		</keybind>
+
+		<keybind key="XF86AudioPrev">
+			<action name="Execute"><execute>mpc prev</execute></action>
+		</keybind>
+		<keybind key="XF86AudioPlay">
+			<action name="Execute"><execute>mpc toggle</execute></action>
+		</keybind>
+		<keybind key="XF86AudioNext">
+			<action name="Execute"><execute>mpc next</execute></action>
+		</keybind>
+
+		<keybind key="XF86AudioMute">
+			<action name="Execute"><execute>amixer set Master toggle</execute></action>
+		</keybind>
+		<keybind key="XF86AudioLowerVolume">
+			<action name="Execute"><execute>amixer set Master 10%-</execute></action>
+		</keybind>
+		<keybind key="XF86AudioRaiseVolume">
+			<action name="Execute"><execute>amixer set Master 10%+</execute></action>
+		</keybind>
+
+		<keybind key="XF86Eject">
+			<action name="Execute"><execute>eject</execute></action>
+		</keybind>
+
 	</keyboard>
 
 	<mouse>
