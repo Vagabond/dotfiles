@@ -3,7 +3,7 @@
 		<separator label="Openbox"/>
 		<item label="xterm">
 			<action name="Execute">
-				<execute>xterm</execute>
+				<execute>xterm -geometry 100x32</execute>
 			</action>
 		</item>
 
