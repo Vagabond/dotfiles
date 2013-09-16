@@ -47,6 +47,9 @@ set hlsearch
 set listchars=tab:>-,eol:$,trail:.,extends:#
 set list
 
+"Use strong crypto
+set cm=blowfish
+
 " function to only add tabs at the beginning
 " of the line, use spaces elsewhere so that if
 " tabstop changes, the non-indent formatting is
