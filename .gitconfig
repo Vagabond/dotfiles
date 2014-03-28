@@ -11,3 +11,9 @@
 	email = andrew@hijacked.us
 [github]
 	user = Vagabond
+[url "ssh://git@github.com/"]
+	insteadOf = git://github.com/
+	insteadOf = https://github.com/
+	insteadOf = http://github.com/
+[push]
+	default = simple
