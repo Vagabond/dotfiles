@@ -12,6 +12,10 @@ subscribe treedevelopers@fusedsolutions.com
 subscribe alsa-user@lists.sourceforge.net
 subscribe erlang-questions@erlang.org
 subscribe erlang-patches@erlang.org
+subscribe erlang-bugs@erlang.org
+subscribe rebar@lists.basho.com
+subscribe openacd@googlegroups.com
+subscribe riak-users@lists.basho.com
 
 #mailboxes /var/mail/andrew mbox
 set index_format="%4C %Z %{%b %d} %-15.15n %s"
@@ -28,32 +32,44 @@ set include
 set mbox=+mbox
 set record=~/.muttmail/sent
 set edit_headers=yes
+set tmpdir=~/tmp
 
 set sort=threads
+set sort_aux=last-date-received
 set duplicate_threads=yes
 set nomark_old
 set pager_stop
 set pager_index_lines=3
 set sort=threads
 
+set certificate_file=~/.mutt_certificates
+set header_cache=~/.mutt_cache
 
 set reverse_name
 set from=andrew@hijacked.us
-set alternates="andrewt@fusedsolutions.com|athompson@spicecsm.com"
+#set alternates="andrewt@fusedsolutions.com|athompson@spicecsm.com"
 
+unset markers
 
 ignore *
+
+# magic to make emails with only text/html render sanely
+auto_view text/html
+alternative_order text/plain
 
 unignore from: subject to cc mail-followup-to \
 	date x-mailer x-url
 
-mailboxes `echo $HOME/.muttmail/*`
+mailboxes `echo $HOME/.muttmail/*` imaps://andrew@basho.com@imap.gmail.com imap://lay-k@mail.cataclysm-software.net
 
 unhdr_order *
 hdr_order date from subject to cc
 
 macro index X "<enter-command>unset wait_key\n<pipe-entry>bogofilter -s\n<enter-command>set wait_key\n<delete-message>"
 macro pager X "<enter-command>unset wait_key\n<pipe-entry>bogofilter -s\n<enter-command>set wait_key\n<delete-message>"
+macro index Y "<enter-command>unset wait_key\n<pipe-entry>bogofilter -N\n<enter-command>set wait_key\n<delete-message>"
+macro pager Y "<enter-command>unset wait_key\n<pipe-entry>bogofilter -N\n<enter-command>set wait_key\n<delete-message>"
+macro index Z "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<next-undeleted>"
 macro index r "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<reply>"
 macro pager r "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<reply>"
 macro index g "<enter-command>unset wait_key\n<pipe-entry>bogofilter -n\n<enter-command>set wait_key\n<group-reply>"
@@ -68,6 +84,7 @@ macro index "\Cr" "<tag-pattern>~N<enter><tag-prefix><toggle-new><tag-prefix><cl
 #macro pager s "<enter-command>unset wait_key\n<pipe-entry>bogofilter -N\n<enter-command>set wait_key\n<save-entry>"
 
 macro index u "<change-folder>?<tab>"
+bind index q noop
 
 #macro browser q "<return><quit>"
 

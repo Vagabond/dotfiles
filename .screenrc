@@ -7,6 +7,9 @@ bind q
 
 vbell on
 
+# non blocking file descriptors by default
+defnonblock on
+
 hardstatus on
 hardstatus alwayslastline
 hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "

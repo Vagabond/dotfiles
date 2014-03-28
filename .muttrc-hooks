@@ -3,3 +3,4 @@ folder-hook . unmy_hdr 'Reply-To: treedevelopers@fusedsolutions.com'
 folder-hook =cataclysm-software set from='vagabond@cataclysm-software.net'
 folder-hook =nitro-general set from='vagabond@cataclysm-software.net'
 folder-hook =treedevelopers my_hdr 'Reply-To: treedevelopers@fusedsolutions.com'
+folder-hook imaps://andrew@basho.com@imap.gmail.com/ set from="andrew@basho.com"
