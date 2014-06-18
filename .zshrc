@@ -34,7 +34,7 @@ SSH_ENV=$HOME/.ssh/environment
 
 function start_agent {
      echo "Initialising new SSH agent..."
-     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
+     /usr/bin/ssh-agent -t 300 | sed 's/^echo/#echo/' > ${SSH_ENV}
      echo succeeded
      chmod 600 ${SSH_ENV}
      . ${SSH_ENV} > /dev/null
@@ -43,14 +43,17 @@ function start_agent {
 
 # Source SSH settings, if applicable
 
-if [ -f "${SSH_ENV}" ]; then
-     . ${SSH_ENV} > /dev/null
-     #ps ${SSH_AGENT_PID} doesn't work under cywgin
-     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-         start_agent;
-     }
+if [ -z "${SSH_AUTH_SOCK}" ]; then
+	if [ -f "${SSH_ENV}" ]; then
+		. ${SSH_ENV} > /dev/null
+		ps ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+		start_agent;
+	}
+	else
+		start_agent;
+	fi
 else
-     start_agent;
+	echo "got ssh_auth_sock from login"
 fi
 
 export COLORTERM=yes
